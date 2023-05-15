@@ -318,7 +318,7 @@ body {
 
   font-weight: 700;
   font-size: 36px;
-  line-height: 1.1;
+  line-height: 1.11;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: capitalize;
@@ -619,7 +619,7 @@ body {
   opacity: 0;
 }
 
-.projects-card:hover .project-overlay {
+.projects-link:hover .project-overlay {
   transform: translateY(0);
   opacity: 1;
 }
