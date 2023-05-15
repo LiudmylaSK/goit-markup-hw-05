@@ -12,6 +12,7 @@
   --footer-text-color: #f4f4fd;
   --footer-bg-color: #2e2f42;
   --border-color: #e7e9fc;
+  --transition-hover-focus: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -123,10 +124,12 @@ body {
 
 .menu {
   display: flex;
-  column-gap: 40px;
+  gap: 40px;
 }
 
 .menu-link {
+  position: relative;
+
   display: block;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -144,6 +147,20 @@ body {
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
+  transition: color var(--transition-hover-focus);
+}
+
+.menu-link.active::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+
+  background: #404bbf;
+  border-radius: 2px;
 }
 
 .contacts {
@@ -153,7 +170,7 @@ body {
 
 .contacts-list {
   display: flex;
-  column-gap: 24px;
+  gap: 24px;
 }
 
 .contact-link {
@@ -232,13 +249,14 @@ body {
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--accent-color);
+  transition: background-color var(--transition-hover-focus);
 }
 
 /* FEATURES */
 
 .features-list {
   display: flex;
-  column-gap: 24px;
+  gap: 24px;
 }
 
 .features-item {
@@ -286,7 +304,7 @@ body {
 
 .works-list {
   display: flex;
-  column-gap: 24px;
+  gap: 24px;
 }
 
 .works-item {
@@ -314,7 +332,7 @@ body {
 
 .team-list {
   display: flex;
-  column-gap: 24px;
+  gap: 24px;
 }
 
 .team-card {
@@ -382,12 +400,14 @@ body {
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-color);
+  transition: background-color var(--transition-hover-focus);
 }
 
 .social-media-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+
   fill: currentColor;
 }
 
@@ -421,14 +441,12 @@ body {
 .customer-link:focus {
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
+
+  transition: color, border var(--transition-hover-focus),
+    var(--transition-hover-focus);
 }
 
 .customer-icon {
-  fill: currentColor;
-}
-
-.customer-icon:hover,
-.customer-icon:focus {
   fill: currentColor;
 }
 
@@ -440,6 +458,7 @@ body {
 
   background-color: var(--footer-bg-color);
 }
+
 .main-footer {
   display: flex;
   align-items: baseline;
@@ -507,6 +526,7 @@ body {
 .footer-social-media-link:hover,
 .footer-social-media-link:focus {
   background-color: #31d0aa;
+  transition: background-color var(--transition-hover-focus);
 }
 
 /* PORTFOLIO.HTML */
@@ -517,12 +537,8 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 72px;
-  column-gap: 24px;
+  gap: 24px;
 }
-
-/* .filters-list .filters-item:not(:last-child) {
-  margin-right: 24px;
-} */
 
 .filters-btn {
   display: flex;
@@ -546,6 +562,10 @@ body {
 
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+
+  transition: background-color, color, border,
+    box-shadow var(--transition-hover-focus), var(--transition-hover-focus),
+    var(--transition-hover-focus), var(--transition-hover-focus);
 }
 
 /* PROJECTS */
@@ -572,6 +592,45 @@ body {
 .projects-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+
+  transition: box-shadow var(--transition-hover-focus);
+}
+
+.project-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-overlay {
+  padding: 40px 32px 164px 32px;
+
+  position: absolute;
+  bottom: 0;
+
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #4d5ae5;
+
+  transform: translateY(100%);
+  transition: transform var(--transition-hover-focus);
+
+  opacity: 0;
+}
+
+.projects-card:hover .project-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-overlay-text {
+  font-size: 16px;
+  line-height: 1.5;
+
+  letter-spacing: 0.02em;
+
+  color: #f4f4fd;
 }
 
 .projects-card .description {
