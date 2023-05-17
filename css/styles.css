@@ -147,6 +147,7 @@ body {
 
 .menu-link:hover,
 .menu-link:focus,
+.menu-link.active,
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
@@ -159,9 +160,10 @@ body {
 
   position: absolute;
   left: 0px;
-  bottom: 0;
+  bottom: -1px;
 
   background: #404bbf;
+
   border-radius: 2px;
 }
 
@@ -249,9 +251,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.04em;
 
-  transition: background-color var(--transition-hover-focus),
-    color var(--transition-hover-focus),
-    box-shadow var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus);
 }
 
 .hero-btn:hover,
@@ -403,8 +403,7 @@ body {
   color: #f4f4fd;
   background-color: #4d5ae5;
 
-  transition: background-color var(--transition-hover-focus),
-    color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus);
 }
 
 .social-link:hover,
@@ -441,7 +440,8 @@ body {
   border-radius: 4px;
   color: #8e8f99;
 
-  transition: color var(--transition-hover-focus);
+  transition: color var(--transition-hover-focus),
+    border-color var(--transition-hover-focus);
 }
 
 .customer-link:hover,
@@ -528,8 +528,7 @@ body {
   color: #f4f4fd;
   background-color: #4d5ae5;
 
-  transition: background-color var(--transition-hover-focus),
-    color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus);
 }
 
 .footer-social-media-link:hover,
@@ -563,6 +562,7 @@ body {
 
   transition: background-color var(--transition-hover-focus),
     color var(--transition-hover-focus),
+    border-color var(--transition-hover-focus),
     box-shadow var(--transition-hover-focus);
 }
 
@@ -628,8 +628,7 @@ body {
   color: var(--overlay-text-color);
 
   transform: translate(0, 100%);
-  transition: background-color var(--transition-hover-focus),
-    color var(--transition-hover-focus), transform var(--transition-hover-focus);
+  transition: transform var(--transition-hover-focus);
 }
 
 .projects-link:hover .project-overlay,
@@ -672,8 +671,7 @@ body {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
 
-  transition: background-color var(--transition-hover-focus),
-    opacity var(--transition-hover-focus),
+  transition: opacity var(--transition-hover-focus),
     visibility var(--transition-hover-focus);
 }
 
@@ -689,7 +687,7 @@ body {
   left: 50%;
 
   width: 408px;
-  height: 584px;
+  min-height: 576px;
 
   background-color: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
@@ -697,9 +695,7 @@ body {
   border-radius: 4px;
 
   transform: translate(-50%, -50%);
-  transition: background-color var(--transition-hover-focus),
-    box-shadow var(--transition-hover-focus),
-    transform var(--transition-hover-focus);
+  transition: transform var(--transition-hover-focus);
 }
 
 .modal-close-btn {
@@ -721,11 +717,13 @@ body {
   border-radius: 50%;
 
   transition: background-color var(--transition-hover-focus),
-    color var(--transition-hover-focus);
+    border var(--transition-hover-focus);
 }
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
+  border: none;
+
   background-color: var(--accent-color);
   color: #fff;
 }
