@@ -145,10 +145,6 @@ body {
   transition: color var(--transition-hover-focus);
 }
 
-.contact-link {
-  transition: color var(--transition-hover-focus);
-}
-
 .menu-link:hover,
 .menu-link:focus,
 .contact-link:hover,
@@ -190,6 +186,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+
+  transition: color var(--transition-hover-focus);
 }
 
 /* MAIN */
@@ -251,7 +249,9 @@ body {
   line-height: 1.5;
   letter-spacing: 0.04em;
 
-  transition: background-color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus),
+    box-shadow var(--transition-hover-focus);
 }
 
 .hero-btn:hover,
@@ -403,7 +403,8 @@ body {
   color: #f4f4fd;
   background-color: #4d5ae5;
 
-  transition: background-color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus);
 }
 
 .social-link:hover,
@@ -527,7 +528,8 @@ body {
   color: #f4f4fd;
   background-color: #4d5ae5;
 
-  transition: background-color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus);
 }
 
 .footer-social-media-link:hover,
@@ -622,11 +624,12 @@ body {
 
   letter-spacing: 0.02em;
 
-  color: var(--overlay-text-color);
   background-color: #4d5ae5;
+  color: var(--overlay-text-color);
 
   transform: translate(0, 100%);
-  transition: transform var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus), transform var(--transition-hover-focus);
 }
 
 .projects-link:hover .project-overlay,
@@ -669,7 +672,8 @@ body {
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
 
-  transition: opacity var(--transition-hover-focus),
+  transition: background-color var(--transition-hover-focus),
+    opacity var(--transition-hover-focus),
     visibility var(--transition-hover-focus);
 }
 
@@ -693,7 +697,9 @@ body {
   border-radius: 4px;
 
   transform: translate(-50%, -50%);
-  transition: transform var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    box-shadow var(--transition-hover-focus),
+    transform var(--transition-hover-focus);
 }
 
 .modal-close-btn {
@@ -714,8 +720,8 @@ body {
 
   border-radius: 50%;
 
-  transition: color var(--transition-hover-focus),
-    background-color var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus);
 }
 
 .modal-close-btn:hover,
