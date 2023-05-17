@@ -440,8 +440,8 @@ body {
   border-radius: 4px;
   color: #8e8f99;
 
-  transition: color var(--transition-hover-focus),
-    border-color var(--transition-hover-focus);
+  transition: border-color var(--transition-hover-focus),
+    color var(--transition-hover-focus);
 }
 
 .customer-link:hover,
