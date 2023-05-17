@@ -264,7 +264,7 @@ body {
   flex-basis: calc((100% - 72px) / 4);
 }
 
-.features-thumb {
+.features-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,7 +325,7 @@ body {
   text-transform: capitalize;
 }
 
-/* Our Team */
+/* OUR TEAM */
 
 .our-team {
   background-color: var(--secondary-bg-color);
@@ -405,9 +405,9 @@ body {
 }
 
 .social-media-icon {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   fill: currentColor;
 }
@@ -443,12 +443,13 @@ body {
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
 
-  transition: color, border var(--transition-hover-focus),
-    var(--transition-hover-focus);
+  transition: color var(--transition-hover-focus);
 }
 
 .customer-icon {
   fill: currentColor;
+
+  transition: fill var(--transition-hover-focus);
 }
 
 /* FOOTER */
@@ -564,9 +565,9 @@ body {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 
-  transition: background-color, color, border,
-    box-shadow var(--transition-hover-focus), var(--transition-hover-focus),
-    var(--transition-hover-focus), var(--transition-hover-focus);
+  transition: background-color var(--transition-hover-focus),
+    color var(--transition-hover-focus),
+    box-shadow var(--transition-hover-focus);
 }
 
 /* PROJECTS */
@@ -597,7 +598,7 @@ body {
   transition: box-shadow var(--transition-hover-focus);
 }
 
-.project-thumb {
+.project-wrapper {
   position: relative;
   overflow: hidden;
 }
@@ -610,6 +611,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
 
   font-size: 16px;
   line-height: 1.5;
@@ -619,12 +621,13 @@ body {
   color: var(--overlay-text-color);
   background-color: #4d5ae5;
 
-  transform: translateY(100%);
+  transform: translate(0, 100%);
   transition: transform var(--transition-hover-focus);
 }
 
-.projects-link:hover .project-overlay {
-  transform: translateY(0);
+.projects-link:hover .project-overlay,
+.projects-link:focus .project-overlay {
+  transform: translate(0, 0);
 }
 
 .projects-card .description {
@@ -649,4 +652,75 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+/* MODAL WINDOW */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+
+  transition: opacity var(--transition-hover-focus),
+    visibility var(--transition-hover-focus);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 408px;
+  height: 584px;
+
+  background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%);
+  transition: transform var(--transition-hover-focus);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+  background-color: #e7e9fc;
+  color: #2e2f42;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--accent-color);
+  color: #fff;
+
+  transition: color var(--transition-hover-focus),
+    background-color var(--transition-hover-focus);
+}
+
+.modal-close-btn-icon {
+  fill: currentColor;
+
+  transition: fill var(--transition-hover-focus);
 }
